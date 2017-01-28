@@ -19,3 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+# Added by Breakfast Gem
+npm-debug.log
+node_modules/*
+public/assets/*
