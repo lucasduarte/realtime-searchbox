@@ -30,7 +30,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
+
 gem 'breakfast'
+
+gem "bulma-rails", "~> 0.3.1"
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

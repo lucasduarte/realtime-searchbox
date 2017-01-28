@@ -8,7 +8,7 @@
 
     <input type="text"
            class="Typeahead__input"
-           placeholder="Search twitter user"
+           placeholder="Start typing for suggestions..."
            autocomplete="off"
            v-model="query"
            @keydown.down="down"
@@ -19,9 +19,9 @@
            @input="update"/>
 
     <ul v-show="hasItems">
-      <li v-for="item in items" :class="activeClass($index)" @mousedown="hit" @mousemove="setActive($index)">
-        <span class="name" v-text="item.name"></span>
-        <span class="screen-name" v-text="item.screen_name"></span>
+      <li v-for="(item, index) in items" :class="activeClass(index)" @mousedown="hit" @mousemove="setActive(index)">
+        <span class="name" v-text="item"></span>
+        <span class="screen-name" v-text="item"></span>
       </li>
     </ul>
   </div>
@@ -35,14 +35,15 @@ export default {
   extends: VueTypeahead,
   data () {
     return {
-      src: 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search',
+      src: 'http://localhost:3000/auto_search',
       limit: 5,
-      minChars: 3
+      minChars: 3,
+      queryParamName: 'search'
     }
   },
   methods: {
     onHit (item) {
-      window.location.href = 'http://twitter.com/' + item.screen_name
+      //window.location.href = 'http://twitter.com/' + item.screen_name
     },
   }
 }
@@ -65,7 +66,6 @@ export default {
   font-weight: 300;
   padding: 12px 26px;
   border: none;
-  border-radius: 22px;
   letter-spacing: 1px;
   box-sizing: border-box;
 }
@@ -83,6 +83,7 @@ i {
   top: 30px;
   right: 29px;
   opacity: 0.4;
+  color: black;
 }
 ul {
   position: absolute;
