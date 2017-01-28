@@ -38,7 +38,8 @@ module.exports = {
       jQuery: "jquery",
       breakfast: "breakfast-rails",
       Vue: 'vue/dist/vue.common.js',
-      VueResource: 'vue-resource/dist/vue-resource.common.js'
+      VueResource: 'vue-resource/dist/vue-resource.common.js',
+      VueTypeahead: 'vue-typeahead/dist/vue-typeahead.common.js'
     }
   }
 };
