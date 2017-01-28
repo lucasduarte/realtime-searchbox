@@ -15,3 +15,9 @@
  *= require_self
  */
  @import "bulma";
+
+
+ .hero.is-fullheight .hero-body {
+     align-items: flex-start;
+     display: flex;
+ }

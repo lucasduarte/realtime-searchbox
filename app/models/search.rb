@@ -5,7 +5,7 @@ class Search < ApplicationRecord
   def self.related_searches(search)
     where('search LIKE ?', "#{search}%")
       .order('user_searches_count DESC')
-      .pluck(:search)
+      #.pluck(:search, :user_searches_count)
   end
 
   def self.get_by_prhase(search_phrase)

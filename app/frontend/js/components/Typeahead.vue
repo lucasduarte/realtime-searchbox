@@ -13,15 +13,15 @@
            v-model="query"
            @keydown.down="down"
            @keydown.up="up"
-           @keydown.enter="hit"
+           @keydown.enter="hitEnter($event.target.value)"
            @keydown.esc="reset"
            @blur="reset"
            @input="update"/>
 
     <ul v-show="hasItems">
       <li v-for="(item, index) in items" :class="activeClass(index)" @mousedown="hit" @mousemove="setActive(index)">
-        <span class="name" v-text="item"></span>
-        <span class="screen-name" v-text="item"></span>
+        <span class="name" v-text="item.search"></span>
+        <span class="screen-name">Searched {{ item.user_searches_count}} times</span>
       </li>
     </ul>
   </div>
@@ -43,8 +43,17 @@ export default {
   },
   methods: {
     onHit (item) {
-      //window.location.href = 'http://twitter.com/' + item.screen_name
+      this.$http.get('http://localhost:3000/search?search=' + item.search);
+      this.searchFeedback(item);
     },
+    hitEnter(item) {
+      if (item) {
+        this.onHit({'search': item});
+      }
+    },
+    searchFeedback (item) {
+      alert('You submitted the following search: ' + item.search);
+    }
   }
 }
 </script>
