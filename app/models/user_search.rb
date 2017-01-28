@@ -1,6 +1,7 @@
 class UserSearch < ApplicationRecord
   belongs_to :search, counter_cache: true
-
+  validates_presence_of :search_id
+  
   def self.search(search_phrase)
 
     search = Search.new(search: search_phrase)

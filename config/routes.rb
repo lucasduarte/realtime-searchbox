@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  root 'home#index'
+
+  post 'destroy_all' => 'home#destroy_all'
 
   get 'auto_search' => 'searches#auto_search'
   get 'search' => 'user_searches#search'

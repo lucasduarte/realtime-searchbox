@@ -5,14 +5,14 @@
         <h1 class="title is-1">
         	Realtime Search Box
         </h1>
+        <%= form_tag(destroy_all_path, method: :post) do %>
+          <button class="button is-danger" type="submit">Clean Database</button>
+        <% end %>
+
         <typeahead></typeahead>
       </div>
     </div>
   </section>
-</div>
-
-<div id="root">
-
 </div>
 
 <script>require('frontend/js/app').init();</script>
